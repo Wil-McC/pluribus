@@ -5,10 +5,11 @@
   <input type='text' id='name' name='museum[name]'/><br/>
   <p>Museum open status:</p>
   <!-- RADIOS do NOT return true or false values  -->
-  <input type="radio" id="open" name="museum[open]" value="true">
+  <input type="radio" id="open" name="museum[open]" value="open">
   <label for="open">Open</label><br>
-  <input type="radio" id="closed" name="museum[open]" value="false">
+  <input type="radio" id="closed" name="museum[open]" value="closed">
   <label for="closed">Closed</label><br>
-  <textarea name='museum[description]'></textarea><br/>
+  <label for="cost">Entry Cost:</label><br>
+  <input type="number" id="cost" name="museum[cost]" value="6"><br>
   <input type='submit'/>
 </form>
