@@ -1,0 +1,14 @@
+<form action="/museums" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>Enter a new museum:</p>
+  <label for="name">Museum Name:</label><br>
+  <input type='text' id='name' name='museum[name]'/><br/>
+  <p>Museum open status:</p>
+  <!-- RADIOS do NOT return true or false values  -->
+  <input type="radio" id="open" name="museum[open]" value="true">
+  <label for="open">Open</label><br>
+  <input type="radio" id="closed" name="museum[open]" value="false">
+  <label for="closed">Closed</label><br>
+  <textarea name='museum[description]'></textarea><br/>
+  <input type='submit'/>
+</form>
