@@ -8,6 +8,13 @@ class MuseumsController < ApplicationController
   end
 
   def create
+    museum = Museum.new({
+      name: params[:museum][:name],
+      open: params[:museum][:open],
+      cost: params[:museum][:cost]
+    })
 
+    task.save
+    redirect_to '/tasks'
   end
 end
