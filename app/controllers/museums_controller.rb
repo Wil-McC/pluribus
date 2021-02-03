@@ -21,4 +21,19 @@ class MuseumsController < ApplicationController
   def show
     @museum = Museum.find(params[:id])
   end
+
+  def edit
+    @museum = Museum.find(params[:id])
+  end
+
+  def update
+    museum = Museum.find(params[:id])
+    museum.update({
+      name: params[:museum][:name],
+      open: params[:museum][:open],
+      cost: params[:museum][:cost]
+    })
+    museum.save
+    redirect_to "/museums/#{museum.id}"
+  end
 end
