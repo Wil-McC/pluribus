@@ -1,6 +1,6 @@
 class MuseumsController < ApplicationController
   def index
-    @museums = ['MuseoD', 'Intercity Paris', 'Chantilly']
+    @museums = Museum.all
   end
 
   def new
@@ -14,7 +14,11 @@ class MuseumsController < ApplicationController
       cost: params[:museum][:cost]
     })
 
-    task.save
-    redirect_to '/tasks'
+    museum.save
+    redirect_to '/museums'
+  end
+
+  def show
+    @museum = Museum.find(params[:id])
   end
 end
