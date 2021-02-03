@@ -1,5 +1,5 @@
 <h1>All Museums</h1>
 
 <% @museums.each do |museum| %>
-  <h3><%= museum %></h3>
+  <h3><%= museum.id %> - <a href="/museums/<%= museum.id %>"><%= museum.name %></a></h3>
 <% end %>
