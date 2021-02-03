@@ -1,5 +1,9 @@
-<a href="/tasks">Museum Index</a>
+<a href="/museums">Museum Index</a>
 
 <h1><%= @museum.name %></h1>
 <p><%= @museum.open %></p>
 <p><%= @museum.cost %></p>
+<p><%= @museum.created_at %></p>
+<p><%= @museum.updated_at %></p>
+
+<a href="/museums/<%= @museum.id %>/edit">Edit</a>
