@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   get '/museums/new', to: 'museums#new'
   post '/museums', to: 'museums#create'
   get '/museums/:id', to: 'museums#show'
+  get '/museums/:id/edit', to: 'museums#edit'
+  patch '/museums/:id', to: 'museums#update'
 end
