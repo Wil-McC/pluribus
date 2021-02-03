@@ -1,0 +1,9 @@
+<h1><%= @exhibit.name %></h1>
+
+<p>Open?: <%= @exhibit.open %></p>
+<p>Cost: <%= @exhibit.cost  %></p>
+<p>Created At: <%= @exhibit.created_at %></p>
+<p>Updated At: <%= @exhibit.updated_at %></p>
+
+<a href="/exhibits/ <%= @exhibit.id %>/edit"> Update Exhibit </a>
+<%= button_to "Delete", "/exhibits/#{@exhibit.id}", method: :delete %>
