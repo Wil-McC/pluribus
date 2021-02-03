@@ -36,4 +36,9 @@ class MuseumsController < ApplicationController
     museum.save
     redirect_to "/museums/#{museum.id}"
   end
+
+  def destroy
+    Museum.destroy(params[:id])
+    redirect_to '/museums'
+  end
 end
