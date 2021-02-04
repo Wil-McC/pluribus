@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   get '/', to: 'welcome#index'
   get '/exhibits', to: 'exhibits#index'
   get '/exhibits/new', to: 'exhibits#new'
+  post '/exhibits', to: 'exhibits#create'
+  get '/exhibits/:id', to: "exhibits#show"
+  get '/exhibits/:id/edit', to: 'exhibits#edit'
+  patch '/exhibits/:id', to: 'exhibits#update'
+  delete '/exhibits/:id', to: 'exhibits#destroy'
 
   get '/museums', to: 'museums#index'
   get '/museums/new', to: 'museums#new'
@@ -11,4 +16,5 @@ Rails.application.routes.draw do
   get '/museums/:id/edit', to: 'museums#edit'
   patch '/museums/:id', to: 'museums#update'
   delete '/museums/:id', to: 'museums#destroy'
+
 end

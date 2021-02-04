@@ -1,0 +1,11 @@
+<form action="/exhibits" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>Enter a new Exhibit:</p>
+  <%= label_tag :name %>
+  <input type='text' name='exhibit[name]'/><br/>
+  <%= label_tag :open %>
+  <input type='checkbox' name='exhibit[open]' /><br/>
+  <%= label_tag :cost %>
+  <input type='text' name='exhibit[cost]'/><br/>
+  <%= submit_tag 'Create Exhibit' %>
+</form>
