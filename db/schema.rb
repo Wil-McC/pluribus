@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 2021_02_04_150247) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "museums", force: :cascade do |t|
+    t.string "name"
+    t.boolean "open"
+    t.integer "cost"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "patrons", force: :cascade do |t|
     t.string "name"
     t.boolean "paid"
