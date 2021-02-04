@@ -1,0 +1,10 @@
+<a href="/museums">Museum Index</a>
+
+<h1><%= @museum.name %></h1>
+<p><%= @museum.open %></p>
+<p><%= @museum.cost %></p>
+<p><%= @museum.created_at %></p>
+<p><%= @museum.updated_at %></p>
+
+<%= link_to "Update Museum", "/museums/#{@museum.id}/edit", method: :get %>
+<%= link_to "Delete Museum", "/museums/#{@museum.id}", method: :delete %>
