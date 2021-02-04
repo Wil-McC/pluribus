@@ -6,10 +6,5 @@
 <p><%= @museum.created_at %></p>
 <p><%= @museum.updated_at %></p>
 
-<a href="/museums/<%= @museum.id %>/edit">Update Museum</a>
-
-<form action="/museums/<%= @museum.id %>" method="POST">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="delete museum">
-</form>
+<%= link_to "Update Museum", "/museums/#{@museum.id}/edit", method: :get %>
+<%= link_to "Delete Museum", "/museums/#{@museum.id}", method: :delete %>
