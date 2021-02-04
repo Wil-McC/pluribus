@@ -8,4 +8,13 @@ Rails.application.routes.draw do
   get '/exhibits/:id/edit', to: 'exhibits#edit'
   patch '/exhibits/:id', to: 'exhibits#update'
   delete '/exhibits/:id', to: 'exhibits#destroy'
+
+  get '/museums', to: 'museums#index'
+  get '/museums/new', to: 'museums#new'
+  post '/museums', to: 'museums#create'
+  get '/museums/:id', to: 'museums#show'
+  get '/museums/:id/edit', to: 'museums#edit'
+  patch '/museums/:id', to: 'museums#update'
+  delete '/museums/:id', to: 'museums#destroy'
+
 end

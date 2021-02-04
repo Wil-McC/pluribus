@@ -1,0 +1,12 @@
+<form action="/museums/<%= @museum.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
+  <p>Edit</p>
+  <h3>Name:</h3>
+  <input type='text' name='museum[name]' value="<%= @museum.name %>"/><br/>
+  <h3>Open?</h3>
+  <input type="checkbox" name="museum[open]"><br>
+  <h3>Entry Cost:</h3>
+  <input type="number" name="museum[cost]" value="<%= @museum.cost %>">
+  <input type='submit'/>
+</form>
