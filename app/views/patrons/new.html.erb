@@ -1,0 +1,11 @@
+<form action="/patrons" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>Enter a new Patron:</p>
+  <%= label_tag :name %>
+  <input type='text' name='patron[name]'/><br/>
+  <%= label_tag :paid %>
+  <input type='checkbox' name='patron[paid]' /><br/>
+  <%= label_tag :age %>
+  <input type='text' name='patron[age]'/><br/>
+  <%= submit_tag 'Create Patron' %>
+</form>

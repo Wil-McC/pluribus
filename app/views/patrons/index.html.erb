@@ -1,11 +1,11 @@
 <h1>All Patrons</h1>
 
+<a href="/patrons/new">New Patron</a>
+
 <% @patrons.each do |patron| %>
-require "pry"; binding.pry
-   <h3><a href="/patrons/<%= patron.id %>"><%= patron.name %></a></h3>
-     <! --
-     <a href="/patron/<%= exhibit.id  %>/edit">Edit</a>
- <form action="/exhibits/<%= exhibit.id %>" method="POST">
- </form>
- -->
+    <h3>name:<%= link_to patron.name, "/patrons/#{patron.id}" %> </h3>
+      <p> Age: <%= patron.age %></p>
+      <p> Paid: <%= patron.paid %></p>
+
+
 <% end %>

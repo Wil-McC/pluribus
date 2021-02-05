@@ -1,0 +1,8 @@
+<%= link_to "Update Patron", "/patrons/#{@patron.id}/edit", method: :get %> <br>
+<%= link_to "Delete Patron", "/patrons/#{@patron.id}", method: :delete %>
+
+
+<h1> Name: <%= @patron.name %></h1>
+<h2>Paid: <%= @patron.paid %></h2>
+<h2>Age: <%= @patron.age %></h2>
+<h2>Exhibit Id: <%= @patron.exhibit_id %></h2>

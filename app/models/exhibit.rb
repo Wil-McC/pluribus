@@ -1,3 +1,3 @@
 class Exhibit < ApplicationRecord
-  has_many :songs 
+  has_many :patrons 
 end
