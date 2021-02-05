@@ -1,0 +1,12 @@
+<form action="/patrons/<%= @patron.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
+  <p>Edit Patron</p>
+  <h3>Name:</h3>
+  <input type='text' name='patron[name]' value="<%= @patron.name %>"/><br/>
+  <h3>Paid? </h3>
+  <input type="checkbox" name="patron[paid]"><br>
+  <h3>Age:</h3>
+  <input type="number" name="patron[age]" value="<%= @patron.age %>"> <br>
+  <input type='submit'/>
+</form>
