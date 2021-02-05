@@ -4,6 +4,7 @@ class PatronsController < ApplicationController
   end
 
   def new
+
   end
 
   def create
@@ -40,4 +41,6 @@ class PatronsController < ApplicationController
     Patron.destroy(params[:id])
     redirect_to '/patrons'
   end
+
+  end 
 end

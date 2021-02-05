@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   patch '/patrons/:id', to: 'patrons#update'
   delete '/patrons/:id', to: 'patrons#destroy'
 
+
+
   get '/museums', to: 'museums#index'
   get '/museums/new', to: 'museums#new'
   post '/museums', to: 'museums#create'
