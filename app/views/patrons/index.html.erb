@@ -1,0 +1,11 @@
+<h1>All Patrons</h1>
+
+<% @patrons.each do |patron| %>
+require "pry"; binding.pry
+   <h3><a href="/patrons/<%= patron.id %>"><%= patron.name %></a></h3>
+     <! --
+     <a href="/patron/<%= exhibit.id  %>/edit">Edit</a>
+ <form action="/exhibits/<%= exhibit.id %>" method="POST">
+ </form>
+ -->
+<% end %>
