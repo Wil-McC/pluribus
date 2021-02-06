@@ -2,7 +2,9 @@
 <p><%= link_to "New Exhibit", "/exhibits/new" %><p>
 <% @exhibits.each do |exhibit| %>
    <h3><a href="/exhibits/<%= exhibit.id %>"><%= exhibit.name %></a></h3><h3>
+     <!--
      <a href="/exhibits/<%= exhibit.id  %>/edit">Edit</a>
  <form action="/exhibits/<%= exhibit.id %>" method="POST">
  </form>
+ -->
 <% end %>
