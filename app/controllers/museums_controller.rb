@@ -45,4 +45,8 @@ class MuseumsController < ApplicationController
   def collection
     @museum = Museum.find(params[:id])
   end
+
+  def acquire
+    @museum = Museum.find(params[:id])
+  end
 end
