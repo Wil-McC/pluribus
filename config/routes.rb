@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   patch '/patrons/:id', to: 'patrons#update'
   delete '/patrons/:id', to: 'patrons#destroy'
 
+  # museums routes
   get '/museums', to: 'museums#index'
   get '/museums/new', to: 'museums#new'
   post '/museums', to: 'museums#create'
@@ -27,5 +28,13 @@ Rails.application.routes.draw do
   get '/museums/:id/edit', to: 'museums#edit'
   patch '/museums/:id', to: 'museums#update'
   delete '/museums/:id', to: 'museums#destroy'
-
+  get '/museums/:id/artifacts', to: 'museums#collection'
+  get '/museums/:id/artifacts/new', to: 'museums#acquire'
+  # artifacts routes
+  get '/artifacts', to: 'artifacts#index'
+  get '/artifacts/:id', to: 'artifacts#show'
+  get '/artifacts/:id/edit', to: 'artifacts#edit'
+  patch '/artifacts/:id', to: 'artifacts#update'
+  delete 'artifacts/:id', to: 'artifacts#destroy'
+  post 'museums/:id/artifacts', to: 'artifacts#create'
 end

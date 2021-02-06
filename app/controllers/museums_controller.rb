@@ -41,4 +41,12 @@ class MuseumsController < ApplicationController
     Museum.destroy(params[:id])
     redirect_to '/museums'
   end
+
+  def collection
+    @museum = Museum.find(params[:id])
+  end
+
+  def acquire
+    @museum = Museum.find(params[:id])
+  end
 end
