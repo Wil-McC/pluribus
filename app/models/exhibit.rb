@@ -1,3 +1,3 @@
 class Exhibit < ApplicationRecord
-  has_many :patrons 
+  has_many :patrons
 end
