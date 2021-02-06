@@ -1,0 +1,11 @@
+<form action="/museums/<%= @museum.id %>/artifacts" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>Add artifact to collection:</p>
+  <label for="name">Artifact Name:</label><br>
+  <input type='text' id='name' name='artifact[name]'/><br/>
+  <p>Artifact rare status:</p>
+  <input type="checkbox" name="artifact[rare]"><br>
+  <label for="age">Artifact Age:</label><br>
+  <input type="number" id="age" name="artifact[age]"><br>
+  <input type='submit'/>
+</form>
