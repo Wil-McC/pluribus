@@ -29,7 +29,12 @@ Rails.application.routes.draw do
   patch '/museums/:id', to: 'museums#update'
   delete '/museums/:id', to: 'museums#destroy'
   get '/museums/:id/artifacts', to: 'museums#collection'
+  get '/museums/:id/artifacts/new', to: 'museums#acquire'
   # artifacts routes
   get '/artifacts', to: 'artifacts#index'
   get '/artifacts/:id', to: 'artifacts#show'
+  get '/artifacts/:id/edit', to: 'artifacts#edit'
+  patch '/artifacts/:id', to: 'artifacts#update'
+  delete 'artifacts/:id', to: 'artifacts#destroy'
+  post 'museums/:id/artifacts', to: 'artifacts#create'
 end
