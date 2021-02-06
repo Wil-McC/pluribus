@@ -4,7 +4,8 @@
   <label for="name">Artifact Name:</label><br>
   <input type='text' id='name' name='artifact[name]'/><br/>
   <p>Artifact rare status:</p>
-  <input type="checkbox" name="artifact[rare]"><br>
+  <input type="hidden" name="artifact[rare]" value="false">
+  <input type="checkbox" name="artifact[rare]" value="true"><br>
   <label for="age">Artifact Age:</label><br>
   <input type="number" id="age" name="artifact[age]" value=1><br>
   <input type='submit'/>
