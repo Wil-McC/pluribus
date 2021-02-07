@@ -15,12 +15,14 @@ RSpec.describe 'the artifact show page' do
     expect(page).to have_content(chengdu.id)
   end
 
-  it 'includes an update link' do
+  it 'includes an update link that redirects' do
     chengdu = Museum.create!(name: "YiShu Chengdu", open: true, cost: 0)
     tao = chengdu.artifacts.create(name: "Taotie", rare: true, age: 3200)
 
     visit "/artifacts/#{tao.id}"
 
     expect(page).to have_link('Update Artifact')
+    click_link 'Update Artifact'
+    expect(current_path).to eq("/artifacts/#{tao.id}/edit")
   end
 end
