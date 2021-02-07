@@ -27,4 +27,14 @@ RSpec.describe 'the museum collection page' do
     expect(page).to have_content(amber.created_at)
     expect(page).to have_content(amber.updated_at)
   end
+
+  it 'has a link to create a new artifact' do
+    chengdu = Museum.create!(name: "YiShu Chengdu", open: true, cost: 0)
+    chengdu.artifacts.create(name: "Taotie", rare: true, age: 3200)
+    visit "/museums/#{chengdu.id}/artifacts"
+
+    expect(page).to have_link('Create Artifact')
+    click_link 'Create Artifact'
+    expect(current_path).to eq("/museums/#{chengdu.id}/artifacts/new")
+  end
 end
