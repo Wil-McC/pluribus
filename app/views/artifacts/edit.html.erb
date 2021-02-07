@@ -5,7 +5,8 @@
   <h3>Name:</h3>
   <input type='text' name='artifact[name]' value="<%= @artifact.name %>"/><br/>
   <h3>Rare?</h3>
-  <input type="checkbox" name="artifact[rare]"><br>
+  <input type="hidden" name="artifact[rare]" value="false">
+  <input type="checkbox" name="artifact[rare]" value="true"><br>
   <h3>Age:</h3>
   <input type="number" name="artifact[age]" value="<%= @artifact.age %>">
   <input type='submit' value="Update Artifact"/>
