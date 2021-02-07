@@ -20,4 +20,12 @@ RSpec.describe 'museum show pages' do
 
     expect(page).to have_link('Update Museum')
   end
+  it 'has a link to delete museum' do
+    basel = Museum.create!(name: "ArtBasel", open: true, cost: 18)
+
+    visit "/museums/#{basel.id}"
+
+    expect(page).to have_link('Delete Museum')
+  end
+
 end
