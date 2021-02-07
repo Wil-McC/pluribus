@@ -1,0 +1,11 @@
+<h1>Patrons in <%=link_to(@exhibit.name,"/exhibits/#{@exhibit.id}")%></h1>
+<%= link_to("Create Patron", "/exhibits/#{@exhibit.id}/patrons/new") %>
+<ul>
+  <% @exhibit.patrons.each do |patron| %>
+    <li>
+      <h3><%= link_to patron.name, "/patrons/#{patron.id}" %></h3>
+      <p>Age: <%= patron.age %></p>
+      <p>Paid: <%= patron.paid %></p>
+    </li>
+  <% end %>
+</ul>

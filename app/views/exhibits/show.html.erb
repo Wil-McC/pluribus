@@ -6,4 +6,5 @@
 <p>Updated At: <%= @exhibit.updated_at %></p>
 
 <a href="/exhibits/ <%= @exhibit.id %>/edit"> Update Exhibit </a>
+<%= link_to "Exhibit Patrons", "/exhibits/#{@exhibit.id}/patrons" %>
 <%= button_to "Delete", "/exhibits/#{@exhibit.id}", method: :delete %>
