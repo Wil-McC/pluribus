@@ -1,0 +1,11 @@
+<a href="/museums">Museum Index</a><br>
+<%= link_to "Add Artifact", "/museums/#{@museum.id}/artifacts/new", method: :get %>
+
+<% @museum.artifacts.each do |artifact| %>
+  <h3><%= artifact.name %></h3>
+  <h4><%= artifact.rare %></h4>
+  <h4><%= artifact.age %></h4>
+  <h4><%= artifact.created_at %></h4>
+  <h4><%= artifact.updated_at %></h4>
+  <h4><%= artifact.museum_id %></h4>
+<% end %>

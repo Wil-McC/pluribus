@@ -4,7 +4,8 @@
   <label for="name">Museum Name:</label><br>
   <input type='text' id='name' name='museum[name]'/><br/>
   <p>Museum open status:</p>
-  <input type="checkbox" name="museum[open]"><br>
+  <input type="hidden" name="museum[open]" value="false">
+  <input type="checkbox" name="museum[open]" value="true"><br>
   <label for="cost">Entry Cost:</label><br>
   <input type="number" id="cost" name="museum[cost]" value="6"><br>
   <input type='submit'/>
