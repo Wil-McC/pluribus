@@ -8,5 +8,23 @@ RSpec.describe 'the museum collection page' do
     amber = basel.artifacts.create(name: "Amberzauber Sieben", rare: false, age: 250)
 
     visit "/museums/#{basel.id}/artifacts"
+
+    expect(page).to have_content('Die Welt')
+    expect(page).to have_content(welt.rare)
+    expect(page).to have_content(230)
+    expect(page).to have_content(welt.created_at)
+    expect(page).to have_content(welt.updated_at)
+
+    expect(page).to have_content('Unterwasser Blau')
+    expect(page).to have_content(blau.rare)
+    expect(page).to have_content(76)
+    expect(page).to have_content(blau.created_at)
+    expect(page).to have_content(blau.updated_at)
+
+    expect(page).to have_content('Amberzauber Sieben')
+    expect(page).to have_content(amber.rare)
+    expect(page).to have_content(250)
+    expect(page).to have_content(amber.created_at)
+    expect(page).to have_content(amber.updated_at)
   end
 end
