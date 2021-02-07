@@ -13,6 +13,14 @@ RSpec.describe 'museum show pages' do
     expect(page).to have_content(basel.updated_at)
   end
 
+  it 'has a link to museum collection which redirects' do
+    basel = Museum.create!(name: "ArtBasel", open: true, cost: 18)
+    visit "/museums/#{basel.id}"
+    expect(page).to have_link 'Collection'
+    click_link 'Collection'
+    expect(current_path).to eq("/museums/#{basel.id}/artifacts")
+  end
+
   it 'has a link to update museum' do
     basel = Museum.create!(name: "ArtBasel", open: true, cost: 18)
 
