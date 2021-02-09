@@ -1,6 +1,6 @@
 class ArtifactsController < ApplicationController
   def index
-    @artifacts = Artifact.all
+    @artifacts = Artifact.show_rare
   end
 
   def show

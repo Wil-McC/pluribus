@@ -37,4 +37,23 @@ RSpec.describe 'the museum collection page' do
     click_link 'Create Artifact'
     expect(current_path).to eq("/museums/#{chengdu.id}/artifacts/new")
   end
+
+  it 'can take a value and return records above value threshold' do
+    chengdu = Museum.create!(name: "YiShu Chengdu", open: true, cost: 0)
+    tao = chengdu.artifacts.create(name: "Taotie", rare: true, age: 3200)
+    qin = chengdu.artifacts.create(name: "QinZiFeng", rare: true, age: 2500)
+    ming = chengdu.artifacts.create(name: "MingTuXiaoXiang", rare: true, age: 1256)
+
+    visit "/museums/#{chengdu.id}/artifacts"
+
+    expect(page).to have_button('Return records')
+
+    fill_in 'age', with: 2000
+    click_button 'Return records'
+
+    expect(current_path).to eq("/museums/#{chengdu.id}/artifacts")
+    expect(page).to have_content(tao.name)
+    expect(page).to have_content(qin.name)
+    expect(page).to_not have_content(ming.name)
+  end
 end
