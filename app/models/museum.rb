@@ -6,7 +6,7 @@ class Museum < ApplicationRecord
   end
 
   def threshold(floor)
-    artifacts.where('age > ?', floor)
+    artifacts.where("age > #{floor}")
   end
 
   def collection_alpha
