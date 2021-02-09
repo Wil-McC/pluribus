@@ -3,6 +3,8 @@
 <form action="/museums/#{@museum.id}/artifacts/" method="post">
 </form>
 
+<%= link_to "Sort Artifacts by Name", "/museums/#{@museum.id}/artifacts?search_type=alphabetical" %>
+
 <%= form_with url: "/museums/#{@museum.id}/artifacts", method: :get do |form| %>
   <%= form.label :age %>
   <%= form.number_field :age %>
