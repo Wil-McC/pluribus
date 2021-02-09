@@ -1,7 +1,17 @@
 <a href="/museums">Museum Index</a><br>
-<%= link_to "Add Artifact", "/museums/#{@museum.id}/artifacts/new", method: :get %>
+<%= link_to "Create Artifact", "/museums/#{@museum.id}/artifacts/new", method: :get %>
+<form action="/museums/#{@museum.id}/artifacts/" method="post">
+</form>
 
-<% @museum.artifacts.each do |artifact| %>
+<%= link_to "Sort Artifacts by Name", "/museums/#{@museum.id}/artifacts?search_type=alphabetical" %>
+
+<%= form_with url: "/museums/#{@museum.id}/artifacts", method: :get, local: true do |form| %>
+  <%= form.label :age %>
+  <%= form.number_field :age %>
+  <%= form.submit 'Return records older than'%>
+<% end %>
+
+<% @artifacts.each do |artifact| %>
   <h3><%= artifact.name %></h3>
   <h4><%= artifact.rare %></h4>
   <h4><%= artifact.age %></h4>
