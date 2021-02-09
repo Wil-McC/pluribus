@@ -1,12 +1,11 @@
 class ExhibitPatronsController < ApplicationController
   def index
+    @exhibit = Exhibit.find(params[:id])
     if params[:commit] == "Enter age threshold"
       search(params)
     elsif params[:search_type]
-      @exhibit = Exhibit.find(params[:id])
       @patrons = @exhibit.sort_alpha
     else
-      @exhibit = Exhibit.find(params[:id])
       @patrons = @exhibit.patrons
     end
   end
@@ -19,11 +18,7 @@ class ExhibitPatronsController < ApplicationController
 
   def create
       exhibit = Exhibit.find(params[:id])
-      patron = exhibit.patrons.create!({
-        name:params[:name],
-        paid:params[:paid],
-        age:params[:age]
-        })
+      patron = exhibit.patrons.create!(patron_params)
         patron.save
         redirect_to "/exhibits/#{exhibit.id}/patrons"
   end

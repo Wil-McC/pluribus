@@ -1,6 +1,6 @@
 class PatronsController < ApplicationController
   def index
-    @patrons = Patron.all_paid 
+    @patrons = Patron.all_paid
   end
 
   def new
@@ -8,11 +8,7 @@ class PatronsController < ApplicationController
   end
 
   def create
-    patron = Patron.new ({
-      name:params[:patron][:name],
-      paid:params[:patron][:paid],
-      age:params[:patron][:age]
-      })
+    patron = Patron.new (patron_params)
 
       patron.save!
       redirect_to '/patrons'
@@ -28,11 +24,7 @@ class PatronsController < ApplicationController
 
   def update
     patron = Patron.find(params[:id])
-    patron.update({
-      name: params[:patron][:name],
-      paid: params[:patron][:paid],
-      age: params[:patron][:age]
-      })
+    patron.update(patron_params)
       patron.save
       redirect_to "/patrons/#{patron.id}"
   end
@@ -42,5 +34,10 @@ class PatronsController < ApplicationController
     redirect_to '/patrons'
   end
 
-  end 
+
+  private
+  def patron_params
+    params.require(:patron).permit(:name, :open, :cost)
+  end
+
 end

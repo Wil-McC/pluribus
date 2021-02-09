@@ -1,4 +1,5 @@
 class Exhibit < ApplicationRecord
+
   has_many :patrons, dependent: :destroy
 
   def self.sort_by_date
