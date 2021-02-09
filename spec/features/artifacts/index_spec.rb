@@ -14,17 +14,5 @@ RSpec.describe 'the artifact index page' do
     expect(page).to have_content(230)
     expect(page).to have_content(welt.created_at)
     expect(page).to have_content(welt.updated_at)
-
-    expect(page).to have_content('Unterwasser Blau')
-    expect(page).to have_content(blau.rare)
-    expect(page).to have_content(76)
-    expect(page).to have_content(blau.created_at)
-    expect(page).to have_content(blau.updated_at)
-
-    expect(page).to have_content('Amberzauber Sieben')
-    expect(page).to have_content(amber.rare)
-    expect(page).to have_content(250)
-    expect(page).to have_content(amber.created_at)
-    expect(page).to have_content(amber.updated_at)
   end
 end
