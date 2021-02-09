@@ -295,11 +295,13 @@
           null,
           null,
           1,
+
           0,
           null,
           null,
           1,
           0,
+
           null,
           null
         ]
@@ -311,6 +313,7 @@
           null
         ]
       },
+
       "/Users/dominicpadula/turing/Mod2/projects/pluribus/app/controllers/exhibits_controller.rb": {
         "lines": [
           1,
@@ -377,6 +380,9 @@
         ]
       }
     },
-    "timestamp": 1612910490
+
+
+    "timestamp": 1612633192
+
   }
 }
