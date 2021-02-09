@@ -1,6 +1,6 @@
 class PatronsController < ApplicationController
   def index
-    @patrons = Patron.all
+    @patrons = Patron.all_paid 
   end
 
   def new

@@ -1,6 +1,6 @@
 class ExhibitsController < ApplicationController
   def index
-    @exhibits = Exhibit.all
+    @exhibits = Exhibit.sort_by_date
   end
 
   def new
@@ -32,7 +32,7 @@ class ExhibitsController < ApplicationController
 
   def update
     exhibit = Exhibit.find(params[:id])
-    exhibit.update({ 
+    exhibit.update({
       name:params[:exhibit][:name],
       open:params[:exhibit][:open],
       cost:params[:exhibit][:cost]

@@ -1,6 +1,20 @@
 class ExhibitPatronsController < ApplicationController
   def index
+    if params[:commit] == "Enter age threshold"
+      search(params)
+    elsif params[:search_type]
+      @exhibit = Exhibit.find(params[:id])
+      @patrons = @exhibit.sort_alpha
+    else
+      @exhibit = Exhibit.find(params[:id])
+      @patrons = @exhibit.patrons
+    end
+  end
+
+  def search(params)
     @exhibit = Exhibit.find(params[:id])
+    age = params[:age].to_i
+    @patrons = @exhibit.patrons.filter_age(age)
   end
 
   def create
