@@ -8,7 +8,7 @@
 <%= form_with url: "/museums/#{@museum.id}/artifacts", method: :get do |form| %>
   <%= form.label :age %>
   <%= form.number_field :age %>
-  <%= form.submit 'Return records'%>
+  <%= form.submit 'Return records older than'%>
 <% end %>
 
 <% @artifacts.each do |artifact| %>
