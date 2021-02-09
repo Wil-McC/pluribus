@@ -11,6 +11,17 @@ RSpec.describe 'the museums index page' do
     expect(page).to have_content(demet.name)
   end
 
+  it 'shows museums from most recent to least' do
+    basel = Museum.create!(name: "ArtBasel", open: true, cost: 18)
+    demet = Museum.create!(name: "Demetera", open: true, cost: 4)
+    forte = Museum.create!(name: "ItaliForte", open: false, cost: 8)
+
+    visit '/museums'
+
+    expect(forte.name).to appear_before(demet.name)
+    expect(demet.name).to appear_before(basel.name)
+  end
+
   it 'has a button for museum creation' do
     basel = Museum.create!(name: "ArtBasel", open: true, cost: 18)
     demet = Museum.create!(name: "Demetera", open: true, cost: 4)
