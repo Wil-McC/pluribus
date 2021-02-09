@@ -1,11 +1,9 @@
 class MuseumsController < ApplicationController
   def index
-    # museums_ordered = Museum.order('created_at DESC')
     @museums = Museum.museums_ordered
   end
 
   def new
-
   end
 
   def create
@@ -46,8 +44,8 @@ class MuseumsController < ApplicationController
   def collection
     @museum = Museum.find(params[:id])
     if params.include?(:age)
-      @artifacts = @museum.threshold(params[:age])
-    elsif params.include?(:search_type)
+      @artifacts = @museum.threshold((params[:age]).to_i)
+    elsif params.include?(:search_te3ype)
       @artifacts = @museum.collection_alpha
     else
       @artifacts = @museum.artifacts
