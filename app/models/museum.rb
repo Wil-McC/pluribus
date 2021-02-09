@@ -8,4 +8,8 @@ class Museum < ApplicationRecord
   def threshold(floor)
     artifacts.where('age > ?', floor)
   end
+
+  def collection_alpha
+    artifacts.order(:name)
+  end
 end
