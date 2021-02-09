@@ -7,12 +7,7 @@ class ExhibitsController < ApplicationController
   end
 
   def create
-    exhibit = Exhibit.new({
-
-      name:params[:exhibit][:name],
-      open:params[:exhibit][:open],
-      cost:params[:exhibit][:cost]
-                          })
+    exhibit = Exhibit.new(exhibit_params)
       exhibit.save
       redirect_to '/exhibits'
   end
@@ -32,17 +27,13 @@ class ExhibitsController < ApplicationController
 
   def update
     exhibit = Exhibit.find(params[:id])
-    exhibit.update({
-      name:params[:exhibit][:name],
-      open:params[:exhibit][:open],
-      cost:params[:exhibit][:cost]
-      })
+    exhibit.update(exhibit_params)
     exhibit.save
     redirect_to "/exhibits/#{exhibit.id}"
   end
 
   private
   def exhibit_params
-    params.permit(:name, :open, :cost)
+    params.require(:exhibit).permit(:name, :open, :cost)
   end
 end
