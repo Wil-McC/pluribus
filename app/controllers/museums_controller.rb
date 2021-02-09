@@ -47,6 +47,8 @@ class MuseumsController < ApplicationController
     @museum = Museum.find(params[:id])
     if params.include?(:age)
       @artifacts = @museum.threshold(params[:age])
+    elsif params.include?(:search_type)
+      @artifacts = @museum.collection_alpha
     else
       @artifacts = @museum.artifacts
     end
