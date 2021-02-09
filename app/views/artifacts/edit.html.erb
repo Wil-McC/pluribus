@@ -1,0 +1,12 @@
+<form action="/artifacts/<%= @artifact.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
+  <p>Edit</p>
+  <h3>Name:</h3>
+  <input type='text' name='artifact[name]' value="<%= @artifact.name %>"/><br/>
+  <h3>Rare?</h3>
+  <input type="checkbox" name="artifact[rare]"><br>
+  <h3>Age:</h3>
+  <input type="number" name="artifact[age]" value="<%= @artifact.age %>">
+  <input type='submit'/>
+</form>

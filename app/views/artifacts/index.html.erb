@@ -1,0 +1,10 @@
+<h1>All Artifacts</h1>
+
+<% @artifacts.each do |artifact| %>
+  <h3><a href="/artifacts/<%= artifact.id %>"><%= artifact.name %></a></h3>
+  <p><%= artifact.rare %></p>
+  <p><%= artifact.age %></p>
+  <p><%= artifact.created_at %></p>
+  <p><%= artifact.updated_at %></p>
+  <p><%= artifact.museum_id %></p>
+<% end %>
