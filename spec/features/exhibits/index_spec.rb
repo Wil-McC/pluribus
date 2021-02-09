@@ -21,4 +21,22 @@ RSpec.describe Exhibit do
     expect(current_path).to eq("/exhibits/new")
     expect(page).to have_content("Enter a new Exhibit")
   end
+
+  #story 18 test features
+  it 'Shows a link that can foward us to edit page' do
+  visit '/exhibits'
+  #find("a[href='#{edit_users_path}']").click
+  expect(page).to have_link("Edit #{@Black_holes.name}")
+  click_link("Edit #{@Black_holes.name}")
+  expect(current_path).to eq("/exhibits/#{@Black_holes.id}/edit")
+  end
+
+  # story 19 test features
+  it 'Shows a link that can delete the specific exhibit' do
+    visit '/exhibits'
+    expect(page).to have_link("Delete #{@Black_holes.name}")
+    click_link("Delete #{@Black_holes.name}")
+    expect(current_path).to eq("/exhibits")
+    expect(page).not_to have_content(@Black_holes.name)
+  end
 end
