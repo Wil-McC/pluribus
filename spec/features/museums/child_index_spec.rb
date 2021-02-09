@@ -54,7 +54,7 @@ RSpec.describe 'the museum collection page' do
     expect(current_path).to eq("/museums/#{chengdu.id}/artifacts")
     expect(page).to have_content(tao.name)
     expect(page).to have_content(qin.name)
-    expect(page).to_not have_content(ming.name)
+    expect(page).to_not have_content("MingTuXiaoXiang")
   end
 
   it 'sorts artifacts alphabetically on link click' do
