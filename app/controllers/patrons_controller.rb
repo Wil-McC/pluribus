@@ -35,9 +35,9 @@ class PatronsController < ApplicationController
   end
 
 
-
   private
   def patron_params
     params.require(:patron).permit(:name, :open, :cost)
   end
+
 end

@@ -51,6 +51,5 @@ RSpec.describe 'Index' do
     expect(alyssa.name).to appear_before(dominic.name)
     expect(dominic.name).to appear_before(johnny.name)
 
- 
   end
 end

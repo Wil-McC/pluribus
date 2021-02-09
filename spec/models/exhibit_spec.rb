@@ -11,6 +11,7 @@ describe Exhibit, type: :model do
     it { should have_many :patrons}
   end
 
+
   # story 13
   it "counts the number of patrons in exhibits" do
     king_tut = Exhibit.create! name:"King Tut", open:true, cost:40
