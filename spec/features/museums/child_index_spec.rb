@@ -56,4 +56,22 @@ RSpec.describe 'the museum collection page' do
     expect(page).to have_content(qin.name)
     expect(page).to_not have_content(ming.name)
   end
+
+  it 'sorts artifacts alphabetically on link click' do
+    chengdu = Museum.create!(name: "YiShu Chengdu", open: true, cost: 0)
+    tao = chengdu.artifacts.create(name: "Taotie", rare: true, age: 3200)
+    qin = chengdu.artifacts.create(name: "QinZiFeng", rare: true, age: 2500)
+    ming = chengdu.artifacts.create(name: "MingTuXiaoXiang", rare: true, age: 1256)
+
+    visit "/museums/#{chengdu.id}/artifacts"
+
+    expect(page).to have_link('Sort Artifacts by Name')
+
+    click_link 'Sort Artifacts by Name'
+
+    expect(current_path).to eq("/museums/#{chengdu.id}/artifacts")
+    expect(ming.name).to appear_before(qin.name)
+    expect(qin.name).to appear_before(tao.name)
+
+  end
 end
