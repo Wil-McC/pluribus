@@ -10,8 +10,15 @@ describe 'On the child index page I see child and attributes' do
     expect(page).to have_link("Dominic")
     expect(page).to have_content("Paid: true")
     expect(page).to have_content("Age: 28")
-    expect(page).to have_link("Alyssa")
-    expect(page).to have_content("Paid: false")
-    expect(page).to have_content("Age: 25")
+  end
+
+  #story 14
+  it "is sorted by boolean" do
+    king_tut = Exhibit.create! name:"King Tut", open:true, cost:40
+    dominic = king_tut.patrons.create!(name: "Dominic", paid:true, age:28)
+    alyssa = king_tut.patrons.create!(name: "Alyssa", paid:false, age:25)
+    visit '/patrons'
+    expect(page).to have_content(dominic.name)
+    expect(page).not_to have_content(alyssa.name)
   end
 end

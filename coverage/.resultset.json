@@ -257,8 +257,14 @@
           1,
           1,
           null,
+
           1,
           1,
+          1,
+          1,
+          null,
+          null,
+          null,
           1,
           1,
           null,
@@ -290,6 +296,15 @@
           1,
           1,
           null,
+
+          1,
+          1,
+          null,
+          null,
+          1,
+          5,
+          null,
+          null,
           1,
           1,
           null,
@@ -300,9 +315,130 @@
         "lines": [
           1,
           1,
+          null,
           null
         ]
       },
+
+      "/Users/dominicpadula/turing/Mod2/projects/pluribus/app/models/patron.rb": {
+
+      "/Users/dominicpadula/turing/Mod2/projects/pluribus/app/models/application_record.rb": {
+
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+
+      "/Users/dominicpadula/turing/Mod2/projects/pluribus/app/controllers/exhibit_patrons_controller.rb": {
+        "lines": [
+          1,
+          1,
+          5,
+          1,
+          4,
+          1,
+          1,
+          null,
+          3,
+          3,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          1,
+          null,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/dominicpadula/turing/Mod2/projects/pluribus/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/dominicpadula/turing/Mod2/projects/pluribus/app/controllers/exhibits_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          null,
+          1,
+          1,
+          0,
+          null,
       "/Users/dominicpadula/turing/Mod2/projects/pluribus/app/models/patron.rb": {
         "lines": [
           1,
@@ -311,6 +447,10 @@
         ]
       }
     },
+
+    "timestamp": 1612834562
+
     "timestamp": 1612633192
+
   }
 }
