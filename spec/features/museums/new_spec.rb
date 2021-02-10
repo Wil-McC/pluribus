@@ -19,4 +19,24 @@ RSpec.describe 'new museum form page' do
     expect(current_path).to eq('/museums')
     expect(page).to have_content('Raymanta')
   end
+  # story 22
+  it 'has a child index link' do
+    visit "/museums/new"
+
+    expect(page).to have_link('Artifact Index')
+
+    click_link 'Artifact Index'
+
+    expect(current_path).to eq('/artifacts')
+  end
+  #story 23
+  it 'has a parent index link' do
+    visit "/museums/new"
+
+    expect(page).to have_link('Museum Index')
+
+    click_link 'Museum Index'
+
+    expect(current_path).to eq('/museums')
+  end
 end
