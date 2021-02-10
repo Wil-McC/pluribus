@@ -46,5 +46,4 @@ RSpec.describe 'the artifact index page' do
     expect(current_path).to eq("/artifacts")
     expect(page).to_not have_content(welt.name)
   end
-
 end
