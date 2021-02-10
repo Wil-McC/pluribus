@@ -37,4 +37,33 @@ RSpec.describe 'the museums index page' do
     click_link "New Museum"
     expect(current_path).to eq('/museums/new')
   end
+  #story 18
+  it 'has an update link associate with each museum which redirects to edit form' do
+    basel = Museum.create!(name: "ArtBasel", open: true, cost: 18)
+    demet = Museum.create!(name: "Demetera", open: true, cost: 4)
+
+    visit '/museums'
+
+    expect(page).to have_link('Update ArtBasel')
+    expect(page).to have_link('Update Demetera')
+
+    click_on 'Update ArtBasel'
+
+    expect(current_path).to eq("/museums/#{basel.id}/edit")
+  end
+  # story 19
+  it 'has an update link associate with each museum which redirects to edit form' do
+    basel = Museum.create!(name: "ArtBasel", open: true, cost: 18)
+    demet = Museum.create!(name: "Demetera", open: true, cost: 4)
+
+    visit '/museums'
+
+    expect(page).to have_link('Delete ArtBasel')
+    expect(page).to have_link('Delete Demetera')
+
+    click_on 'Delete ArtBasel'
+
+    expect(current_path).to eq("/museums")
+    expect(page).to_not have_content(basel.name)
+  end
 end
