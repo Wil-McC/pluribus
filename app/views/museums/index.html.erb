@@ -3,9 +3,13 @@
 
 <h1>All Museums</h1>
 <a href="/museums/new">New Museum</a>
+<%= link_to "Sort by Artifact Count", "/museums?search_type=artifact_count" %>
+
 
 <% @museums.each do |museum| %>
   <h3><%= museum.id %> - <a href="/museums/<%= museum.id %>"><%= museum.name %></a> - <%= museum.created_at %></h3>
+  <p>Artifacts in collection:</p>
+  <p><%= museum.artifacts.count %></p>
   <%= link_to "Update #{museum.name}", "/museums/#{museum.id}/edit", method: :get %>
   <%= link_to "Delete #{museum.name}", "/museums/#{museum.id}", method: :delete %>
 <% end %>
