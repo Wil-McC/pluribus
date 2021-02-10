@@ -1,3 +1,5 @@
+<%= link_to "Update Patron", "/patrons/#{@patron.id}/edit", method: :get %> <br>
+<%= link_to "Delete Patron", "/patrons/#{@patron.id}", method: :delete %>
 <h1>All Exhibits</h1>
 <p><%= link_to "New Exhibit", "/exhibits/new" %><p>
 <% @exhibits.each do |exhibit| %>
