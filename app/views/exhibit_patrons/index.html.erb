@@ -1,3 +1,5 @@
+<p><%= link_to "View All Exhibits", "/exhibits" %></p>
+<p><%= link_to "View All Patrons", "/patrons" %></p>
 <h1>Patrons in <%=link_to(@exhibit.name,"/exhibits/#{@exhibit.id}")%></h1>
 <%= link_to("Create Patron", "/exhibits/#{@exhibit.id}/patrons/new") %>
 <%= link_to("Sort Patrons alphabetically by name","/exhibits/#{@exhibit.id}/patrons?search_type=alphabetical") %>

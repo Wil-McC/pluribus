@@ -1,5 +1,5 @@
-<%= link_to "Update Patron", "/patrons/#{@patron.id}/edit", method: :get %> <br>
-<%= link_to "Delete Patron", "/patrons/#{@patron.id}", method: :delete %>
+<p><%= link_to "View All Exhibits", "/exhibits" %></p>
+<p><%= link_to "View All Patrons", "/patrons" %></p>
 <form action="/patrons" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <p>Enter a new Patron:</p>

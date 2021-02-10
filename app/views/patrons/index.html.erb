@@ -1,5 +1,6 @@
-<%= link_to "Update Patron", "/patrons/#{@patron.id}/edit", method: :get %> <br>
-<%= link_to "Delete Patron", "/patrons/#{@patron.id}", method: :delete %>
+<p><%= link_to "View All Exhibits", "/exhibits" %></p>
+<p><%= link_to "View All Patrons", "/patrons" %></p>
+
 <h1>All Patrons</h1>
 <a href="/patrons/new">New Patron</a>
 
@@ -7,4 +8,6 @@
     <h3>name:<%= link_to patron.name, "/patrons/#{patron.id}" %> </h3>
       <p> Age: <%= patron.age %></p>
       <p> Paid: <%= patron.paid %></p>
+  <%= link_to "Update Patron", "/patrons/#{patron.id}/edit", method: :get %> <br>
+  <%= link_to "Delete Patron", "/patrons/#{patron.id}", method: :delete %>
 <% end %>
