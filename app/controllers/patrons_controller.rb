@@ -8,7 +8,8 @@ class PatronsController < ApplicationController
   end
 
   def create
-    patron = Patron.new (patron_params)
+    exhibit = Exhibit.find(16)
+    patron = exhibit.patrons.create(patron_params)
 
       patron.save!
       redirect_to '/patrons'

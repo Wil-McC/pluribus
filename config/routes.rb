@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   #patrons routes
   get '/patrons', to: 'patrons#index'
   get '/patrons/new', to: 'patrons#new'
-  # post '/patrons', to: 'patrons#create'
+  post '/patrons', to: 'patrons#create'
   get '/patrons/:id', to:'patrons#show'
   get 'patrons/:id/edit', to:'patrons#edit'
   patch '/patrons/:id', to: 'patrons#update'

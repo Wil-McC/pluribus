@@ -1,10 +1,13 @@
+<p><%= link_to "View All Exhibits", "/exhibits" %></p>
+<p><%= link_to "View All Patrons", "/patrons" %></p>
 <form action="/patrons" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <p>Enter a new Patron:</p>
   <%= label_tag :name %>
   <input type='text' name='patron[name]'/><br/>
   <%= label_tag :paid %>
-  <input type='checkbox' name='patron[paid]' /><br/>
+  <input type="hidden" name="patron[paid]" value="false">
+  <input type='checkbox' name='patron[paid]' value ="true"  /><br/>
   <%= label_tag :age %>
   <input type='text' name='patron[age]'/><br/>
   <%= submit_tag 'Create Patron' %>
