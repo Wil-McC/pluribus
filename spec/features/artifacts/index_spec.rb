@@ -15,7 +15,7 @@ RSpec.describe 'the artifact index page' do
     expect(page).to have_content(welt.created_at)
     expect(page).to have_content(welt.updated_at)
   end
-
+  #story 20
   it 'has an update link associated with each artifact' do
     basel = Museum.create!(name: "ArtBasel", open: true, cost: 18)
     welt = basel.artifacts.create(name: "Die Welt", rare: true, age: 230)
@@ -30,7 +30,7 @@ RSpec.describe 'the artifact index page' do
 
     expect(current_path).to eq("/artifacts/#{welt.id}/edit")
   end
-
+  #story 21
   it 'has a delete link associated with each artifact' do
     basel = Museum.create!(name: "ArtBasel", open: true, cost: 18)
     welt = basel.artifacts.create(name: "Die Welt", rare: true, age: 230)
