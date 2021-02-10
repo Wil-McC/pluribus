@@ -1,6 +1,10 @@
 class MuseumsController < ApplicationController
   def index
-    @museums = Museum.museums_ordered
+    if params[:search_type] == 'artifact_count'
+      @museums = Museum.museums_by_collection
+    else
+      @museums = Museum.museums_ordered
+    end
   end
 
   def new
@@ -45,7 +49,7 @@ class MuseumsController < ApplicationController
     @museum = Museum.find(params[:id])
     if params.include?(:age)
       @artifacts = @museum.threshold((params[:age]).to_i)
-    elsif params.include?(:search_type)
+    elsif params[:search_type] == 'alphabetical'
       @artifacts = @museum.collection_alpha
     else
       @artifacts = @museum.artifacts
