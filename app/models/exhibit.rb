@@ -1,4 +1,5 @@
 class Exhibit < ApplicationRecord
+  validates_presence_of :name
   has_many :patrons, dependent: :destroy
 
   def self.sort_by_date
@@ -11,5 +12,13 @@ class Exhibit < ApplicationRecord
 
   def sort_alpha
     patrons.order(:name)
+  end
+
+  def self.sort_by_children
+    joins(:patrons).group(:id).order('COUNT(exhibits.id) DESC')
+  end
+
+  def self.search_by_name(complete_search)
+    Exhibit.find_by(name: complete_search)
   end
 end
