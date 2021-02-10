@@ -86,4 +86,29 @@ RSpec.describe 'the museums index page' do
 
     expect(current_path).to eq('/museums')
   end
+  # extension 1
+  it 'has sort by artifact number link that sorts accordingly' do
+    forte = Museum.create!(name: "ItaliForte", open: false, cost: 8)
+    basel = Museum.create!(name: "ArtBasel", open: true, cost: 18)
+    demet = Museum.create!(name: "Demetera", open: true, cost: 4)
+
+    basel.artifacts.create(name: "Die Welt", rare: true, age: 230)
+    basel.artifacts.create(name: "Unterwasser Blau", rare: false, age: 76)
+    basel.artifacts.create(name: "Amberzauber Sieben", rare: false, age: 250)
+    demet.artifacts.create(name: "Astrava", rare: false, age: 28)
+    demet.artifacts.create(name: "Octavion", rare: true, age: 48)
+    forte.artifacts.create(name: "Luvi", rare: false, age: 16)
+
+    visit "/museums"
+
+    expect(page).to have_link('Sort by Artifact Count')
+
+    click_link 'Sort by Artifact Count'
+
+    expect(current_path).to eq('/museums')
+    expect(basel.name).to appear_before(demet.name)
+    expect(demet.name).to appear_before(forte.name)
+    expect('3').to appear_before('2')
+    expect('2').to appear_before('1')
+  end
 end
