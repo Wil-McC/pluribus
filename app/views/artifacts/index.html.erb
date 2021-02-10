@@ -7,4 +7,6 @@
   <p><%= artifact.created_at %></p>
   <p><%= artifact.updated_at %></p>
   <p><%= artifact.museum_id %></p>
+  <%= link_to "Update #{artifact.name}", "/artifacts/#{artifact.id}/edit", method: :get %>
+  <%= link_to "Delete #{artifact.name}", "/artifacts/#{artifact.id}", method: :delete %>
 <% end %>
