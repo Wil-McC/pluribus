@@ -4,6 +4,12 @@
 <h1>All Patrons</h1>
 <a href="/patrons/new">New Patron</a>
 
+<h2> Partial search for patron names</h2>
+  <%= form_tag("/patrons", method: "get") do %>
+  <p><%= text_field_tag(:search, params[:search]) %></p>
+  <%= submit_tag("Search") %>
+  <%end %>
+
 <% @patrons.each do |patron| %>
     <h3>name:<%= link_to patron.name, "/patrons/#{patron.id}" %> </h3>
       <p> Age: <%= patron.age %></p>

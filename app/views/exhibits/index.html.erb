@@ -4,6 +4,11 @@
 <p><%= link_to "New Exhibit", "/exhibits/new" %><p>
 <p><%= link_to "See Exhibits by patrons attending", "/exhibits?param1=sort" %></p>
 
+<h4> Search for open Exhibits by Name</h4>
+  <%= form_tag("/exhibits", method: "get") do %>
+  <p><%= text_field_tag(:search, params[:search]) %></p>
+  <%= submit_tag("Search") %>
+<% end %>
 <% @exhibits.each do |exhibit| %>
    <h3><a href="/exhibits/<%= exhibit.id %>"><%= exhibit.name %></a></h3><h3>
      <%= link_to "Edit #{exhibit.name}", "/exhibits/#{exhibit.id}/edit" %>
