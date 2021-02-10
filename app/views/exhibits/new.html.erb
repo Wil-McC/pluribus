@@ -1,10 +1,13 @@
+<p><%= link_to "View All Exhibits", "/exhibits" %></p>
+<p><%= link_to "View All Patrons", "/patrons" %></p>
 <form action="/exhibits" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <p>Enter a new Exhibit:</p>
   <%= label_tag :name %>
   <input type='text' name='exhibit[name]'/><br/>
   <%= label_tag :open %>
-  <input type='checkbox' name='exhibit[open]' /><br/>
+  <input type="hidden" name="exhibit[open]" value="false">
+  <input type='checkbox' name='exhibit[open]' value ="true" /><br/>
   <%= label_tag :cost %>
   <input type='text' name='exhibit[cost]'/><br/>
   <%= submit_tag 'Create Exhibit' %>

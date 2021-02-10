@@ -1,9 +1,13 @@
+<p><%= link_to "View All Exhibits", "/exhibits" %></p>
+<p><%= link_to "View All Patrons", "/patrons" %></p>
+
 <%= form_tag("/exhibits/#{@exhibit.id}/patrons", method: "post") %>
 <p>Patron Name:</p>
   <input type="text" name="name" id="name"></input>
 
-  <p>Paid:<input type="checkbox" name="paid" id="paid"></input><p>
-
+  <p>Paid:
+    <input type="hidden" name="exhibit[paid]" value="false">
+    <input type="checkbox" name="exhibit[paid]" value="true"><br>
   <p>Age:</p>
   <input type="number" name="age" id="age"></input><br><br>
 

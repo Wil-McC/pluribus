@@ -1,3 +1,5 @@
+<p><%= link_to "View All Exhibits", "/exhibits" %></p>
+<p><%= link_to "View All Patrons", "/patrons" %></p>
 <h1> Update <%=@exhibit.name %></h1>
 <form action="/exhibits/ <%=@exhibit.id %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -5,7 +7,8 @@
   <h3> Name: </h3>
   <input type= 'text' name= 'exhibit[name]' value="<%= @exhibit.name %>"/><br/>
   <h3> Open? </h3>
-  <input type='checkbox' name='exhibit[open]' /><br/>
+  <input type="hidden" name="exhibit[open]" value="false">
+  <input type='checkbox' name='exhibit[open]' value ="true" /><br/>
   <h3> Cost </h3>
  <input type='number' name='exhibit[cost]' value="<%= @exhibit.cost %>"/><br/>
 <input type = 'submit'/>

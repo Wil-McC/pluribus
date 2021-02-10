@@ -3,11 +3,6 @@
 <% @exhibits.each do |exhibit| %>
    <h3><a href="/exhibits/<%= exhibit.id %>"><%= exhibit.name %></a></h3><h3>
      <%= link_to "Edit #{exhibit.name}", "/exhibits/#{exhibit.id}/edit" %>
-     <%= link_to "Delete #{exhibit.name}", "/exhibits/#{exhibit.id}", method: :delete %> 
+     <%= link_to "Delete #{exhibit.name}", "/exhibits/#{exhibit.id}", method: :delete %>
      <p> Created at: <%= exhibit.created_at %> </p>
-     <!--
-     <a href="/exhibits/<%= exhibit.id  %>/edit">Edit</a>
- <form action="/exhibits/<%= exhibit.id %>" method="POST">
- </form>
- -->
 <% end %>

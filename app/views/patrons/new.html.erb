@@ -4,7 +4,8 @@
   <%= label_tag :name %>
   <input type='text' name='patron[name]'/><br/>
   <%= label_tag :paid %>
-  <input type='checkbox' name='patron[paid]' /><br/>
+  <input type="hidden" name="patron[paid]" value="false">
+  <input type='checkbox' name='patron[paid]' value ="true"  /><br/>
   <%= label_tag :age %>
   <input type='text' name='patron[age]'/><br/>
   <%= submit_tag 'Create Patron' %>
