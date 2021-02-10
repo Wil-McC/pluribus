@@ -10,7 +10,6 @@ RSpec.describe Patron do
     fill_in 'patron[name]', with: "Johanna"
     check "patron[paid]"
     fill_in 'patron[age]', with: 45
-    require "pry"; binding.pry
     click_on 'Submit'
     expect(current_path).to eq("/patrons/#{patron.id}")
     expect(page).to have_content("Johanna")

@@ -56,11 +56,22 @@ RSpec.describe Exhibit do
     click_link("View All Patrons")
     expect(current_path).to eq("/patrons")
   end
-  #story 25 
+  #story 25
   it "When I arrive on show page I see a link that will sort parents by number of children" do
     visit '/exhibits'
     expect(page).to have_link("See Exhibits by patrons attending")
     click_link("See Exhibits by patrons attending")
     expect(current_path).to eq("/exhibits")
+  end
+  # story 26 feature test
+  it "When I arrive at the exhibits page I see a text box to search by keyword" do
+  visit '/exhibits'
+  expect(page).to have_content("Search for open Exhibits by Name")
+  fill_in :search, with: @king_tut.name
+  click_button("Search")
+  expect(current_path).to eq("/exhibits")
+  expect(page).to have_content(@king_tut.name)
+  expect(page).not_to have_content(@Black_holes.name)
+  expect(page).not_to have_content(@Before_Us.name)
   end
 end

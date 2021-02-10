@@ -53,8 +53,8 @@ RSpec.describe 'Index' do
 
   it "When I arrive on show page I see a link that will sort parents by number of children" do
     visit '/exhibits'
-    expect(page).to have_link("See exhibits by patrons attending")
-    click_link("See exhibits by patrons attending")
+    expect(page).to have_link("See Exhibits by patrons attending")
+    click_link("See Exhibits by patrons attending")
     expect(current_path).to eq("/patrons")
-  end 
+  end
 end

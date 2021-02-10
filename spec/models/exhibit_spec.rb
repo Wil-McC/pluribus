@@ -40,7 +40,7 @@ describe Exhibit, type: :model do
 
     dominic = king_tut.patrons.create!(name: "Dominic", paid:true, age:28)
     alyssa = king_tut.patrons.create!(name: "Alyssa", paid:false, age:25)
-
+    ryan =  king_tut.patrons.create!(name: "Alyssa", paid:false, age:25)
     george = before_us.patrons.create!(name: "George", paid:false, age:19)
     johnny = before_us.patrons.create!(name: "Johnny", paid:false, age:19)
 
@@ -55,9 +55,9 @@ describe Exhibit, type: :model do
     black_holes = Exhibit.create! name:"Black Holes", open:true, cost:75
     king_tut = Exhibit.create! name:"King Tut", open:true, cost:40
     before_us= Exhibit.create! name:"Before Us", open:true, cost:35
-
-    expected = Exhibit.search_by_name("Before Us")
-    expect(expected).to eq(before_us)
+    key = "Before Us"
+    expected = Exhibit.search_by_name(key)
+    expect(expected).to eq([before_us])
     expect(expected).to_not eq(king_tut)
   end
 end
