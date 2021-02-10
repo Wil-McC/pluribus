@@ -12,4 +12,9 @@ class Museum < ApplicationRecord
   def collection_alpha
     artifacts.order(:name)
   end
+
+  def self.museums_by_collection
+    joined = joins(:artifacts).group(:id).order('COUNT(artifacts.id) DESC')
+
+  end
 end
