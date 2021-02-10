@@ -1,4 +1,5 @@
 class Patron < ApplicationRecord
+  validates_presence_of :name
   belongs_to :exhibit
 
   def self.all_paid
