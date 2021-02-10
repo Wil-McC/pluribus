@@ -15,6 +15,22 @@ describe Museum, type: :model do
         expect(Museum.museums_ordered).to eq([forte, demet, basel])
       end
     end
+    describe '::museums_by_collection' do
+      it 'sorts by artifact count descending' do
+        forte = Museum.create!(name: "ItaliForte", open: false, cost: 8)
+        basel = Museum.create!(name: "ArtBasel", open: true, cost: 18)
+        demet = Museum.create!(name: "Demetera", open: true, cost: 4)
+
+        basel.artifacts.create(name: "Die Welt", rare: true, age: 230)
+        basel.artifacts.create(name: "Unterwasser Blau", rare: false, age: 76)
+        basel.artifacts.create(name: "Amberzauber Sieben", rare: false, age: 250)
+        demet.artifacts.create(name: "Astrava", rare: false, age: 28)
+        demet.artifacts.create(name: "Octavion", rare: true, age: 48)
+        forte.artifacts.create(name: "Luvi", rare: false, age: 16)
+
+        expect(Museum.museums_by_collection).to eq([basel, demet, forte])
+      end
+    end
   end
 
   describe 'instance methods' do
