@@ -10,4 +10,9 @@ class Patron < ApplicationRecord
     where('age > ?', age)
   end
 
+  def self.partial_name_search(params)
+    search_key = "%#{params}%"
+    Patron.where("name like ?", search_key)
+  end
+
 end
