@@ -1,4 +1,5 @@
-<a href="/museums">Museum Index</a><br>
+<%= link_to "Artifact Index", "/artifacts", method: :get %>
+<%= link_to "Museum Index", "/museums", method: :get %>
 
 <h1><%= @museum.name %></h1>
 <h3><%= link_to "Collection", "/museums/#{@museum.id}/artifacts", method: :get %></h3>
