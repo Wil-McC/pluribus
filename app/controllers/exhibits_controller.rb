@@ -1,6 +1,12 @@
 class ExhibitsController < ApplicationController
   def index
-    @exhibits = Exhibit.sort_by_date
+    if params[:search]
+      @exhibits = Exhibit.search_by_name(params[:search])
+    elsif  params[:param1] == "sort"
+      @exhibits = Exhibit.sort_by_children
+    else
+      @exhibits = Exhibit.sort_by_date
+    end
   end
 
   def new

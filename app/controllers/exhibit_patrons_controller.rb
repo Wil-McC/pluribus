@@ -17,10 +17,10 @@ class ExhibitPatronsController < ApplicationController
   end
 
   def create
-      exhibit = Exhibit.find(params[:id])
-      patron = exhibit.patrons.create!(patron_params)
-        patron.save
-        redirect_to "/exhibits/#{exhibit.id}/patrons"
+    exhibit = Exhibit.find(params[:id])
+    patron = exhibit.patrons.create!(patron_params)
+    patron.save
+    redirect_to "/exhibits/#{exhibit.id}/patrons"
   end
 
   def new
@@ -29,7 +29,6 @@ class ExhibitPatronsController < ApplicationController
 
   private
   def patron_params
-
     params.permit(:name, :paid, :age)
   end
 end

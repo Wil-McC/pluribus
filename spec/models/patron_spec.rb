@@ -23,4 +23,18 @@ describe Patron, type: :model do
     expected = king_tut.patrons.filter_age(20)
     expect(expected.count).to eq(2)
   end
+
+  # story 27 model test
+  it "can show records based on partial searches" do
+    king_tut = Exhibit.create! name:"King Tut", open:true, cost:40
+    dominic = king_tut.patrons.create!(name: "Dominic", paid:true, age:28)
+    alyssa = king_tut.patrons.create!(name: "Alyssa", paid:false, age:25)
+    george = king_tut.patrons.create!(name: "George", paid:false, age:19)
+    ryssa = king_tut.patrons.create!(name: "Ryssa", paid:false, age:25)
+    params = "yssa"
+    expected = Patron.partial_name_search(params)
+    expect(expected).to eq([alyssa, ryssa])
+    expect(expected).to_not eq(george)
+    expect(expected).to_not eq(dominic)
+  end
 end

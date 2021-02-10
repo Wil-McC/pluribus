@@ -1,6 +1,10 @@
 class PatronsController < ApplicationController
   def index
-    @patrons = Patron.all_paid
+    if params[:search]
+      @patrons = Patron.partial_name_search(params[:search])
+    else
+      @patrons = Patron.all_paid
+    end
   end
 
   def new
@@ -8,7 +12,7 @@ class PatronsController < ApplicationController
   end
 
   def create
-    exhibit = Exhibit.find(16)
+    exhibit = Exhibit.find(15)
     patron = exhibit.patrons.create(patron_params)
 
       patron.save!
@@ -38,7 +42,7 @@ class PatronsController < ApplicationController
 
   private
   def patron_params
-    params.require(:patron).permit(:name, :open, :cost)
+    params.require(:patron).permit(:name, :paid, :age)
   end
 
 end

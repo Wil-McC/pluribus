@@ -12,7 +12,7 @@ RSpec.describe Exhibit do
     expect(page).to have_content(king_tut.updated_at)
     expect(page).to have_content(king_tut.created_at)
   end
-  # story 4 test not passing yet 
+  # story 4 test not passing yet
   it "Shows a link to update the parent on the page" do
     king_tut = Exhibit.create! name:"King Tut", open:true, cost:40
     visit "/exhibits/#{king_tut[:id]}"
@@ -20,7 +20,7 @@ RSpec.describe Exhibit do
     expect(page).to have_link("Update Exhibit")
     click_link "Update Exhibit"
     expect(current_path).to eq("/exhibits/#{king_tut[:id]}/edit")
-    expect(page).to have_content("Submit")
+    click_on 'Update Exhibit'
   end
   # Story 5 test
   it "Shows a button to delete parent on the page" do
