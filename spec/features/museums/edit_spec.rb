@@ -25,4 +25,28 @@ RSpec.describe 'the museum update form page' do
     expect(page).to have_content('false')
     expect(page).to have_content(23)
   end
+  # story 22
+  it 'has a child index link' do
+    basel = Museum.create!(name: "ArtBasel", open: true, cost: 18)
+
+    visit "/museums/#{basel.id}/edit"
+
+    expect(page).to have_link('Artifact Index')
+
+    click_link 'Artifact Index'
+
+    expect(current_path).to eq('/artifacts')
+  end
+  #story 23
+  it 'has a parent index link' do
+    basel = Museum.create!(name: "ArtBasel", open: true, cost: 18)
+
+    visit "/museums/#{basel.id}/edit"
+
+    expect(page).to have_link('Museum Index')
+
+    click_link 'Museum Index'
+
+    expect(current_path).to eq('/museums')
+  end
 end

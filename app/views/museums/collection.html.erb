@@ -1,4 +1,6 @@
-<a href="/museums">Museum Index</a><br>
+<%= link_to "Artifact Index", "/artifacts", method: :get %>
+<%= link_to "Museum Index", "/museums", method: :get %>
+
 <%= link_to "Create Artifact", "/museums/#{@museum.id}/artifacts/new", method: :get %>
 <form action="/museums/#{@museum.id}/artifacts/" method="post">
 </form>
@@ -18,4 +20,6 @@
   <h4><%= artifact.created_at %></h4>
   <h4><%= artifact.updated_at %></h4>
   <h4><%= artifact.museum_id %></h4>
+  <%= link_to "Update #{artifact.name}", "/artifacts/#{artifact.id}/edit", method: :get %>
+  <%= link_to "Delete #{artifact.name}", "/artifacts/#{artifact.id}", method: :delete %>
 <% end %>

@@ -72,6 +72,64 @@ RSpec.describe 'the museum collection page' do
     expect(current_path).to eq("/museums/#{chengdu.id}/artifacts")
     expect(ming.name).to appear_before(qin.name)
     expect(qin.name).to appear_before(tao.name)
+  end
+  # story 20
+  it 'has an update link associated with each artifact' do
+    basel = Museum.create!(name: "ArtBasel", open: true, cost: 18)
+    welt = basel.artifacts.create(name: "Die Welt", rare: true, age: 230)
+    blau = basel.artifacts.create(name: "Unterwasser Blau", rare: false, age: 76)
+    amber = basel.artifacts.create(name: "Amberzauber Sieben", rare: false, age: 250)
 
+    visit "museums/#{basel.id}/artifacts"
+
+    expect(page).to have_link('Update Die Welt')
+    expect(page).to have_link('Update Unterwasser Blau')
+    expect(page).to have_link('Update Amberzauber Sieben')
+
+    click_link 'Update Die Welt'
+
+    expect(current_path).to eq("/artifacts/#{welt.id}/edit")
+  end
+  # story 21
+  it 'has a delete link associated with each artifact' do
+    basel = Museum.create!(name: "ArtBasel", open: true, cost: 18)
+    welt = basel.artifacts.create(name: "Die Welt", rare: true, age: 230)
+    blau = basel.artifacts.create(name: "Unterwasser Blau", rare: false, age: 76)
+    amber = basel.artifacts.create(name: "Amberzauber Sieben", rare: false, age: 250)
+
+    visit "museums/#{basel.id}/artifacts"
+
+    expect(page).to have_link('Delete Die Welt')
+    expect(page).to have_link('Delete Unterwasser Blau')
+    expect(page).to have_link('Delete Amberzauber Sieben')
+
+    click_link 'Delete Die Welt'
+
+    expect(current_path).to eq("/artifacts")
+    expect(page).to_not have_content(welt.name)
+  end
+  # story 22
+  it 'has a child index link' do
+    basel = Museum.create!(name: "ArtBasel", open: true, cost: 18)
+
+    visit "museums/#{basel.id}/artifacts"
+
+    expect(page).to have_link('Artifact Index')
+
+    click_link 'Artifact Index'
+
+    expect(current_path).to eq('/artifacts')
+  end
+  #story 23
+  it 'has a parent index link' do
+    basel = Museum.create!(name: "ArtBasel", open: true, cost: 18)
+
+    visit "museums/#{basel.id}/artifacts"
+
+    expect(page).to have_link('Museum Index')
+
+    click_link 'Museum Index'
+
+    expect(current_path).to eq('/museums')
   end
 end

@@ -26,4 +26,30 @@ RSpec.describe 'the create artifact form page' do
     expect(page).to have_content('false')
     expect(page).to have_content(1560)
   end
+  # story 22
+  it 'has a child index link' do
+    chengdu = Museum.create!(name: "YiShu Chengdu", open: true, cost: 0)
+    tao = chengdu.artifacts.create(name: "Taotie", rare: true, age: 3200)
+
+    visit "/museums/#{chengdu.id}/artifacts/new"
+
+    expect(page).to have_link('Artifact Index')
+
+    click_link 'Artifact Index'
+
+    expect(current_path).to eq('/artifacts')
+  end
+  #story 23
+  it 'has a parent index link' do
+    chengdu = Museum.create!(name: "YiShu Chengdu", open: true, cost: 0)
+    tao = chengdu.artifacts.create(name: "Taotie", rare: true, age: 3200)
+
+    visit "/museums/#{chengdu.id}/artifacts/new"
+
+    expect(page).to have_link('Museum Index')
+
+    click_link 'Museum Index'
+
+    expect(current_path).to eq('/museums')
+  end
 end

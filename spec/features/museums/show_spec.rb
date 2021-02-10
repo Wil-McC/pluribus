@@ -47,4 +47,26 @@ RSpec.describe 'museum show pages' do
     expect(current_path).to eq('/museums')
     expect(page).not_to have_content('Demetera')
   end
+  # story 22
+  it 'has a child index link' do
+    basel = Museum.create!(name: "ArtBasel", open: true, cost: 18)
+
+    visit "/museums/#{basel.id}"
+
+    expect(page).to have_link('Artifact Index')
+
+    click_link 'Artifact Index'
+
+    expect(current_path).to eq('/artifacts')
+  end
+  #story 23
+  it 'has a parent index link' do
+    visit "/museums"
+
+    expect(page).to have_link('Museum Index')
+
+    click_link 'Museum Index'
+
+    expect(current_path).to eq('/museums')
+  end
 end
