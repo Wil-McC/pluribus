@@ -4,7 +4,7 @@ class PatronsController < ApplicationController
       @patrons = Patron.partial_name_search(params[:search])
     else
       @patrons = Patron.all_paid
-    end 
+    end
   end
 
   def new
@@ -41,6 +41,6 @@ class PatronsController < ApplicationController
 
   private
   def patron_params
-    params.require(:patron).permit(:name, :paid, :cost)
+    params.require(:patron).permit(:name, :paid, :age)
   end
 end

@@ -1,7 +1,8 @@
 <p><%= link_to "View All Exhibits", "/exhibits" %></p>
 <p><%= link_to "View All Patrons", "/patrons" %></p>
+
 <h1> Update <%=@exhibit.name %></h1>
-<form action="/exhibits/ <%=@exhibit.id %>" method="post">
+<form action="/exhibits/<%=@exhibit.id %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="hidden" name="_method" value="PATCH" />
   <h3> Name: </h3>
@@ -11,5 +12,5 @@
   <input type='checkbox' name='exhibit[open]' value ="true" /><br/>
   <h3> Cost </h3>
  <input type='number' name='exhibit[cost]' value="<%= @exhibit.cost %>"/><br/>
-<input type = 'submit'/>
+<input type = 'submit' value='Update Exhibit'/>
 </form>

@@ -51,10 +51,11 @@ RSpec.describe 'Index' do
     expect(dominic.name).to appear_before(johnny.name)
   end
 
+  #story 25
   it "When I arrive on show page I see a link that will sort parents by number of children" do
     visit '/exhibits'
     expect(page).to have_link("See Exhibits by patrons attending")
     click_link("See Exhibits by patrons attending")
-    expect(current_path).to eq("/patrons")
+    expect(current_path).to eq("/exhibits")
   end
 end
