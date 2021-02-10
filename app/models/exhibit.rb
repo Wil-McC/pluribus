@@ -18,7 +18,7 @@ class Exhibit < ApplicationRecord
     joins(:patrons).group(:id).order('COUNT(exhibits.id) DESC')
   end
 
-  def self.search_by_name(complete_search)
-    Exhibit.find_by(name: complete_search)
+  def self.search_by_name(params)
+    Exhibit.where("name = ?", params)
   end
 end
