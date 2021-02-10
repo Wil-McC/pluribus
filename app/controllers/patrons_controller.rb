@@ -7,7 +7,7 @@ class PatronsController < ApplicationController
   end
 
   def create
-    exhibit = Exhibit.find(16)
+    exhibit = Exhibit.find(15)
     patron = exhibit.patrons.create(patron_params)
 
       patron.save!
