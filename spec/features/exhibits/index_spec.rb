@@ -39,7 +39,7 @@ RSpec.describe Exhibit do
     expect(current_path).to eq("/exhibits")
     expect(page).not_to have_content(@Black_holes.name)
   end
-  # user story 23 
+  # user story 23
   it "When I click on the name of a parent anywhere on the site then that link takes me to that Parent's show page" do
     visit '/exhibits'
     expect(page).to have_link("View All Exhibits")
@@ -55,5 +55,12 @@ RSpec.describe Exhibit do
     expect(page).to have_link("View All Patrons")
     click_link("View All Patrons")
     expect(current_path).to eq("/patrons")
+  end
+  #story 25 
+  it "When I arrive on show page I see a link that will sort parents by number of children" do
+    visit '/exhibits'
+    expect(page).to have_link("See Exhibits by patrons attending")
+    click_link("See Exhibits by patrons attending")
+    expect(current_path).to eq("/exhibits")
   end
 end
