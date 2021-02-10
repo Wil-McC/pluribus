@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Index' do
+
   it "can display count of patrons per exhibit" do
     black_holes = Exhibit.create! name:"Black Holes", open:true, cost:75
     king_tut = Exhibit.create! name:"King Tut", open:true, cost:40
@@ -49,6 +50,7 @@ RSpec.describe 'Index' do
 
     expect(alyssa.name).to appear_before(dominic.name)
     expect(dominic.name).to appear_before(johnny.name)
+
   end
 
   #story 25

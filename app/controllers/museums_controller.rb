@@ -1,10 +1,9 @@
 class MuseumsController < ApplicationController
   def index
-    @museums = Museum.all
+    @museums = Museum.museums_ordered
   end
 
   def new
-
   end
 
   def create
@@ -40,5 +39,20 @@ class MuseumsController < ApplicationController
   def destroy
     Museum.destroy(params[:id])
     redirect_to '/museums'
+  end
+
+  def collection
+    @museum = Museum.find(params[:id])
+    if params.include?(:age)
+      @artifacts = @museum.threshold((params[:age]).to_i)
+    elsif params.include?(:search_type)
+      @artifacts = @museum.collection_alpha
+    else
+      @artifacts = @museum.artifacts
+    end
+  end
+
+  def acquire
+    @museum = Museum.find(params[:id])
   end
 end

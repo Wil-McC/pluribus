@@ -2,5 +2,5 @@
 <a href="/museums/new">New Museum</a>
 
 <% @museums.each do |museum| %>
-  <h3><%= museum.id %> - <a href="/museums/<%= museum.id %>"><%= museum.name %></a></h3>
+  <h3><%= museum.id %> - <a href="/museums/<%= museum.id %>"><%= museum.name %></a> - <%= museum.created_at %></h3>
 <% end %>

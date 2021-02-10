@@ -8,6 +8,7 @@ class PatronsController < ApplicationController
   end
 
   def new
+
   end
 
   def create
@@ -43,4 +44,5 @@ class PatronsController < ApplicationController
   def patron_params
     params.require(:patron).permit(:name, :paid, :age)
   end
+
 end
