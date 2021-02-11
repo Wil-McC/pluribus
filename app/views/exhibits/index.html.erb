@@ -11,6 +11,7 @@
 <% end %>
 <% @exhibits.each do |exhibit| %>
    <h3><a href="/exhibits/<%= exhibit.id %>"><%= exhibit.name %></a></h3><h3>
+     <p>Patrons in Exhibit:<%= exhibit.patrons.count %></p>
      <%= link_to "Edit #{exhibit.name}", "/exhibits/#{exhibit.id}/edit" %>
      <%= link_to "Delete #{exhibit.name}", "/exhibits/#{exhibit.id}", method: :delete %>
      <p> Created at: <%= exhibit.created_at %> </p>
